@@ -1,0 +1,11 @@
+<span>
+    {|Gender|} 
+
+    <button @scope @click=".ReportMistake">
+        <if !|Fixed|> Any mistake? 
+        <else> Fixed!
+        </if>
+    </button>
+</span>
+
+<scoped:style src="src.components.Gender"></scoped:style>

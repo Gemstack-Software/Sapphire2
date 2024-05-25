@@ -1,0 +1,13 @@
+<div>
+    <div class="message-region">
+        <h3>Messages</h3>
+
+        <div>
+            <request:serverCached url="https://d4a1954eb9534c2fb85f9d69e947a5d5.api.mockbin.io/" method="GET">
+                {$response->message}
+            </request:serverCached>
+        </div>
+    </div>
+</div>
+
+<scoped:style src="src.components.About"></scoped:style>
