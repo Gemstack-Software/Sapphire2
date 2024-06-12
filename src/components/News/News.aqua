@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Unbounded', sans-serif;
+}
+
+body {
+    background: global("bgColor");
+    color: global("ftColor");
+    height: 100vh;
+    padding: 32px;
+}
+
+:component .title {
+    font-size: 56px;
+}

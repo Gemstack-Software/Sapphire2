@@ -7,9 +7,13 @@
     use Helpers\Files\File\Concerns\Extension;
     use Helpers\Files\File\Concerns\Mime;
     use Helpers\Files\File\Concerns\Includes;
+    use Helpers\Files\File\Concerns\Asset;
+    use Helpers\Files\File\Concerns\Create;
 
     class File
     {
+        use Asset;
+        use Create;
         use Meta;
         use Read;
         use Write;

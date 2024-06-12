@@ -5,6 +5,10 @@
  box-sizing: border-box;
  font-family: 'Montserrat', sans-serif;
 }
+body {
+ background: #0e3652;
+ color: #fff;
+}
 :component [class$="region"] {
  padding: 20px;
 }

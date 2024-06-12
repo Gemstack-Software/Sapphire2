@@ -9,10 +9,13 @@
 
     if (BASE_DIR) 
     {
+        require(BASE_DIR . '/modules/Exceptioneer/Exceptioneer.Module.php');
         require(BASE_DIR . '/modules/Helpers/Helpers.Module.php');
+        require(BASE_DIR . '/modules/AquaCSS/AquaCSS.Module.php');
         require(BASE_DIR . '/modules/Acid/Acid.Module.php');
         require(BASE_DIR . '/modules/SapphireFramework/SapphireFramework.Module.php');
-        require(BASE_DIR . '/modules/Amethyst/Amethyst.Module.php');
+        // require(BASE_DIR . '/modules/Amethyst/Amethyst.Module.php');
+
     } 
     else 
     {

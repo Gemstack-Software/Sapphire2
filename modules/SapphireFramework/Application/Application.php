@@ -3,8 +3,16 @@
     use Sapphire\Application\Concerns\Run;
     use Sapphire\Application\Concerns\SelectRoute;
     use Sapphire\Application\Concerns\LMPD2M;
-    use Sapphire\Router;
-    use Amethyst\Connection as AmethystConnection;
+    use Sapphire\Application\Concerns\Packages;
+    use Sapphire\Application\Concerns\AquaCSS;
+    use Sapphire\Application\Concerns\Construct;
+
+    /**
+     * ===================================================
+     *  GLOBAL VARIABLES REQUIRED FOR SAPPHIRE TO WORK
+     * ===================================================
+     */
+    $__aquaCSSConfig = [];
 
     /**
      * ===================================================
@@ -19,18 +27,7 @@
         use Run;
         use SelectRoute;
         use LMPD2M;
-
-        protected Router $standardRouter;
-        protected Router $apiRouter;
-        protected AmethystConnection $amethyst;
-
-        public function __construct(protected array $config)
-        {
-            $this->standardRouter = $config["router"];
-            $this->apiRouter = $config["api"];
-            $this->apiRouter->ApiRouter();
-
-            $this->PreserveLMPD2MApis();
-            $this->SelectRoute();
-        }
+        use Packages;
+        use AquaCSS;
+        use Construct;
     }

@@ -1,20 +1,25 @@
 <?php
     use Sapphire\Component;
+    use AquaCSS\Aqua;
 
-    return new class extends Component 
+    return new class extends Component
     {
         public function Setup()
         {
-            $this->Store('Name', 'Maciej');
+            $this->Store('style:fontSize', 100);
         }
 
-        public function ChangeValue($event)
-        {   
-            $this->Store('Name', $event->targetProperties->value);
+        public function Increment()
+        {
+            $this->Store('style:fontSize', $this->Store('style:fontSize') + 20);
         }
 
         public function View()
-        {  
-            return $this->Template('App.view.acid');
+        {
+            $this->Styles (
+                new Aqua("src.components.App")
+            );
+
+            return $this->Template('App.acid');
         }
     };

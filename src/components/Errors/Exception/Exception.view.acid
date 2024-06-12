@@ -1,0 +1,9 @@
+<div class="e404">
+    <h1 class="e404-title">Sapphire Exception</h1>
+
+    <div class="e404-stacktrace">
+        <h2 class="e404-stacktrace__title">{|message|}</h2>
+    </div>
+</div>
+
+<scoped:style src="src.components.errors.Exception"></scoped:style>

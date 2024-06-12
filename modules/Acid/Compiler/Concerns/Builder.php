@@ -6,7 +6,7 @@
 
     trait Builder 
     {
-        public static function Build(File $input): File
+        public static function Build(File $input, array $styles): File
         {
             ///////////////////////////////////////////
             // Obtain file meta
@@ -25,6 +25,6 @@
             ///////////////////////////////////////////
             $output = new File($hash . '.php', $filedist);
 
-            return static::Compile($input, $output);
+            return static::Compile($input, $output, $styles);
         }
     }

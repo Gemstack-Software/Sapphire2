@@ -16,13 +16,26 @@
     define("ACID_IF_REGEX", "(\<if [^\>]*\>)");
     define("ACID_COMPLEX_REGEX", "(\<\<[^\)]*\>\>)");
     define("ACID_STYLE_REGEX", "(\<scoped:style src=\"[^\)]*\"\>\<\/scoped:style>)");
+    define("ACID_AQUASTYLE_REGEX", "(\<scoped:style type=\"aqua\" src=\"[^\)]*\"\>\<\/scoped:style>)");
     define("ACID_REQUEST_SERVER_CACHED_REGEX", "(\<request:serverCached url=\"[^\"]*\" method=\"[^\"]*\"\>)");
 
     trait Compile 
     {
-        public static function Compile(File $input, File $output): File
+        public static function Compile(File $input, File $output, array $styles = []): File
         {
             $contents = new Str($input->Read()->GetContent());
+
+            ////////////////////////////////
+            // Add styles if they are
+            ////////////////////////////////
+            if($styles !== [])
+            {
+                $contents = static::AddStylesToUncompiledFile($contents, $styles);
+            }
+
+            ////////////////////////////////
+            // Compile all syntax
+            ////////////////////////////////
 
             $contents->ReplaceRegexWithCallbackLeaving(ACID_COMMENT_TAG_REGEX, [Compiler::class, 'CompileComment']);
             $contents->ReplaceRegexWithCallbackLeaving(ACID_CONTENT_TAG_REGEX, [Compiler::class, 'CompileContentTag']);
@@ -31,6 +44,7 @@
             $contents->ReplaceRegexWithCallbackLeaving(ACID_FOREACH_REGEX, [Compiler::class, 'CompileForeachTag']);
             $contents->ReplaceRegexWithCallbackLeaving(ACID_IF_REGEX, [Compiler::class, 'CompileIfTag']);
             $contents->ReplaceRegexWithCallbackLeaving(ACID_STYLE_REGEX, [Compiler::class, 'CompileStyleTag']);
+            $contents->ReplaceRegexWithCallbackLeaving(ACID_AQUASTYLE_REGEX, [Compiler::class, 'CompileAquastyleTag']);
             $contents->ReplaceRegexWithCallbackLeaving(ACID_REQUEST_SERVER_CACHED_REGEX, [Compiler::class, 'CompileRequestServerCachedTag']);
 
             $contents->ReplaceRegexWithCallbackLeaving(ACID_VALUE_REGEX, [Compiler::class, 'CompileValueTag']);

@@ -25,6 +25,8 @@
     require(HELPERS_MODULE_PATH . '/Formats/JSON/Concerns/ToJSON.php');
     require(HELPERS_MODULE_PATH . '/Formats/JSON/JSON.php');
     
+    require(HELPERS_MODULE_PATH . '/Files/File/Concerns/Asset.php');
+    require(HELPERS_MODULE_PATH . '/Files/File/Concerns/Create.php');
     require(HELPERS_MODULE_PATH . '/Files/File/Concerns/Includes.php');
     require(HELPERS_MODULE_PATH . '/Files/File/Concerns/Exists.php');
     require(HELPERS_MODULE_PATH . '/Files/File/Concerns/Read.php');
@@ -44,5 +46,7 @@
 
     require(HELPERS_MODULE_PATH . '/Files/Storage/Concerns/Meta.php');
     require(HELPERS_MODULE_PATH . '/Files/Storage/Storage.php');
+
+    require(HELPERS_MODULE_PATH . '/Support/Path/Path.php');
 
     require(HELPERS_MODULE_PATH . '/Import/Import.php');

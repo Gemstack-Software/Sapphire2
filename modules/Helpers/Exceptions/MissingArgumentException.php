@@ -1,7 +1,9 @@
 <?php
     namespace Helpers\Exceptions;
+    
+    use Exceptionner\Exception;
 
-    class MissingArgumentException extends \Exception
+    class MissingArgumentException extends Exception
     {
         
     }

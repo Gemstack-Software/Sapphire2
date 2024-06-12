@@ -10,6 +10,7 @@
     use Sapphire\Component\Concerns\Handlers;
     use Sapphire\Component\Concerns\Param;
     use Sapphire\Component\Concerns\ChildComponent;
+    use Sapphire\Component\Concerns\Styles;
 
     /**
      * ===================================================
@@ -30,6 +31,7 @@
         use Handlers;
         use Param;
         use ChildComponent;
+        use Styles;
 
         public string $thisComponentDirectoryPath = BASE_DIR;
     }

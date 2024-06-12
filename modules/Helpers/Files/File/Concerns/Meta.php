@@ -18,7 +18,7 @@
             {
                 if($createIfNotExists)
                 {
-                    $this->Write('');
+                    $this->Create();
                 }
                 else
                 {
@@ -59,5 +59,29 @@
             }
 
             return $this->path;
+        }
+
+        /**
+         * Get file name
+         */
+        public function GetFilename(): string
+        {
+            return basename($this->path);
+        }
+
+        /**
+         * Getting the folder path to this file (static)
+         */
+        public static function GetFolderPathByPath(string $path): string
+        {
+            return dirname($path); 
+        }
+
+        /**
+         * Getting the folder path to this file
+         */
+        public function GetFolderPath(): string
+        {
+            return dirname($this->path); 
         }
     }

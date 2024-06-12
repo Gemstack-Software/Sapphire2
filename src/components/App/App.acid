@@ -1,0 +1,11 @@
+<container>
+    <div>
+        <h1 class="title">Hello, world!</h1>
+
+        <button 
+            @scope 
+            @click=".Increment">
+            +
+        </button>
+    </div>
+</container>

@@ -19,7 +19,7 @@
             $last = $controllerPathString->SplitToArray('.')->Last();
 
             $controllerPathString->ReplaceLeaving('.', '/');
-            $controllerPathString->Add("/$last.controller.php");
+            $controllerPathString->Add("/$last"."Controller.php");
 
             //////////////////////////////////////
             // Getting controller file

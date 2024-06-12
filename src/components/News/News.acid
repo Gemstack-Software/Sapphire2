@@ -1,0 +1,9 @@
+<container>
+    <div>
+        <h1 class="title">News!</h1>
+
+        <foreach |news| as $newsItem>
+            {$newsItem}
+        </foreach>
+    </div>
+</container>

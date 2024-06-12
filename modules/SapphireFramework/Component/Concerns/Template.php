@@ -1,5 +1,6 @@
 <?php
     namespace Sapphire\Component\Concerns;
+    use Sapphire\Exceptions\UsedStylesMethodInNonAcidViewException;
     use Helpers\Files\File;
     use Helpers\Formats\JSON;
     use Helpers\Support\Str;
@@ -19,9 +20,20 @@
 
             if ($extension === 'acid')
             {
-                $file = Compiler::Build ($file);
+                $file = Compiler::Build ($file, styles: ["aquas" => $this->aquasStyles, "csses" => $this->cssesStyles]);
             } 
-            
+
+            /**
+             * Check if developer used non .acid file with styles method
+             */
+            else 
+            {
+                if($this->usedStyles) 
+                {
+                    throw new UsedStylesMethodInNonAcidViewException("Detected usage of `public \Sapphire\Component->Styles()` method in component that does not uses `.acid` component template, while rendering file $name");
+                }
+            }
+
             /**
              * Rendering component with or without template
              */

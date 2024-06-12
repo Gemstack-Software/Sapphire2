@@ -104,7 +104,8 @@
                 /**
                  * Component does not exists
                  */
-                Response::HTML('404');
+                // Response::HTML('404');
+                $this->Make404();
             }
         }
 
@@ -162,5 +163,16 @@
                     exit();
                 }
             }
+        }
+
+        public function Make404(): void 
+        {
+            Renderer::RenderWithLayout (
+                $this->e_404,
+                params: [
+                    '__fromRouter' => true,
+                    '__isErrorSite' => true
+                ]
+            );
         }
     }

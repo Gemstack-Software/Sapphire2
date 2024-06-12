@@ -1,7 +1,7 @@
 typescript/
 node_modules/
+examples/
 package.json
 package-lock.json
 webpack.mix.js
 tsconfig.json
-public/.git
